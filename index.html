@@ -7,27 +7,36 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <div class="game_wrapper">
-    <header class="game_header">
-      <nav class="game_header_menu">
-        <ul class="game_header_list">
-          <li><input class="game_header_link" type=button value='Home' onclick='switchMainPage()'></li>
-          <li><input class="game_header_link" type=button value='New Game' onclick='switchNewGame()'></li>
-          <li><input class="game_header_link" type=button value='Rules' onclick='switchRules()'></li>
-          <li><input class="game_header_link" type=button value='Best Players' onclick='switchRecords()'></li>
-        </ul>
-      </nav>
-    </header>
-    <main class="game_zone"></main>
-    <footer class="game_footer">
-      <nav class="game_footer_menu">
-        <ul class="game_footer_list">
-          <li><input class="game_footer_link" type=button value='Home' onclick='switchMainPage()'></li>
-          <li><input class="game_footer_link" type=button value='New Game' onclick='switchNewGame()'></li>
-          <li><input class="game_footer_link" type=button value='Rules' onclick='switchRules()'></li>
-          <li><input class="game_footer_link" type=button value='Best Players' onclick='switchRecords()'></li>
-        </ul>
-    </footer>
+  <div class="wrapper">
+    <!--<header class="game_header">-->
+      <!--<nav class="game_header_menu">-->
+        <!--<ul class="game_header_list">-->
+          <!--<li><input class="game_header_link" type=button value='Home' onclick='switchMainPage()'></li>-->
+          <!--<li><input class="game_header_link" type=button value='New Game' onclick='switchNewGame()'></li>-->
+          <!--<li><input class="game_header_link" type=button value='Rules' onclick='switchRules()'></li>-->
+          <!--<li><input class="game_header_link" type=button value='Best Players' onclick='switchRecords()'></li>-->
+        <!--</ul>-->
+      <!--</nav>-->
+    <!--</header>-->
+    <main class="game_zone">
+      <div class="game_wrapper">
+        <canvas id="game_canvas" style="display: block; border: 1px solid #FF6347">Sorry your browser is not supported.
+        </canvas>
+      </div>
+    </main>
+    <!--<footer class="game_footer">-->
+      <!--<nav class="game_footer_menu">-->
+        <!--<ul class="game_footer_list">-->
+          <!--<li><input class="game_footer_link" type=button value='Home' onclick='switchMainPage()'></li>-->
+          <!--<li><input class="game_footer_link" type=button value='New Game' onclick='switchNewGame()'></li>-->
+          <!--<li><input class="game_footer_link" type=button value='Rules' onclick='switchRules()'></li>-->
+          <!--<li><input class="game_footer_link" type=button value='Best Players' onclick='switchRecords()'></li>-->
+        <!--</ul>-->
+      <!--</nav>-->
+    <!--</footer>-->
   </div>
+  <script src="app/model/model.js"></script>
+  <!--<script src="app/app.js"></script>-->
+  <!--<script src="app/controller/controller.js"></script>-->
 </body>
 </html>
