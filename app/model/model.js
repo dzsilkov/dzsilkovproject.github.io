@@ -15,7 +15,7 @@ var player1 = {
   jumpCount: 0,
   move: function () {
 
-    if(this.rightPressed && this.posX < canvas.width-this.width){
+    if(this.rightPressed && this.posX < canvas.width - this.width){
       this.posX += this.speed;
     }
     else if(this.leftPressed && this.posX > 0){
@@ -39,6 +39,30 @@ var player1 = {
     context.closePath();
   }
 };
+
+document.addEventListener("touchstart", touchStartHandler, true);
+document.addEventListener("touchend", touchEndHandler, true);
+
+function touchStartHandler(e){
+  if(e.type === 'touchstart' && e.touches[0].pageX > player1.posX + (player1.width / 2)) {
+    player1.rightPressed = true;
+  }
+  if(e.type === 'touchstart' && e.touches[0].pageX < player1.posX + (player1.width / 2)) {
+    player1.leftPressed = true;
+  }
+  if(e.type === 'touchstart' && e.touches[0].pageY < player1.posY) {
+    player1.jumpPressed = true;
+  }
+}
+
+function touchEndHandler(e){
+  if(e.type === 'touchend'){
+    e.preventDefault();
+    e.stopPropagation();
+    player1.rightPressed = false;
+    player1.leftPressed = false;
+  }
+}
 
 document.addEventListener("keydown", keyRightHandler, false);
 document.addEventListener("keyup", keyLeftHandler, false);
