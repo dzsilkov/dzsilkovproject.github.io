@@ -16,6 +16,7 @@
     update(dt) {
       this.frameIndex += this.animationSpeed * dt;
     };
+
     render(context, valueX, valueY, drawW, drawH) {
       let frame;
       this.drawPosX = valueX;

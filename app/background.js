@@ -1,4 +1,6 @@
 (function (window) {
+  'use strict';
+
   class Background {
     constructor(options) {
       this.name = options.name;

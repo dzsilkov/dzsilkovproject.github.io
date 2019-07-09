@@ -18,9 +18,10 @@
       this.dx = 5;
       this.dy = 0;
     }
+
     move(dt) {
       this.sprite.image = metroidStandImage;
-      if (this.rightPressed && this.posX < canvas.width - this.width) {
+      if (this.rightPressed && this.posX < gameCanvas.width - this.width) {
         this.posX += this.speed;
         this.sprite.image = metroidRightImage;
         this.sprite.update(dt);
@@ -42,6 +43,7 @@
         this.sprite.update(dt);
       }
     };
+
     shot() {
       if (this.shoting) {
         console.log('shot');
@@ -65,10 +67,12 @@
         }))
       }
     }
+
     update(dt) {
       this.shot();
       this.move(dt);
     };
+
     render(context,) {
       this.sprite.render(context, this.posX, this.posY - this.jumpHeight, this.width, this.height);
     }

@@ -7,43 +7,28 @@
   <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-  <!--<div class="wrapper">-->
-    <!--<header class="game_header">-->
-      <!--<nav class="game_header_menu">-->
-        <!--<ul class="game_header_list">-->
-          <!--<li><input class="game_header_link" type=button value='Home' onclick='switchMainPage()'></li>-->
-          <!--<li><input class="game_header_link" type=button value='New Game' onclick='switchNewGame()'></li>-->
-          <!--<li><input class="game_header_link" type=button value='Rules' onclick='switchRules()'></li>-->
-          <!--<li><input class="game_header_link" type=button value='Best Players' onclick='switchRecords()'></li>-->
-        <!--</ul>-->
-      <!--</nav>-->
-    <!--</header>-->
+
   <input type="button" value="start game" onclick="init()">
     <main class="game_zone">
       <div class="game_wrapper">
-        <canvas id="game_canvas" style="display: block;">Sorry your browser is not supported.
-        </canvas>
+        <!--<canvas id="game_terrain" style="display: block; position: absolute">Sorry your browser is not supported.</canvas>-->
+        <!--<canvas id="game_player" style="display: block; position: absolute">Sorry your browser is not supported.</canvas>-->
+        <!--<canvas id="game_environment" style="display: block; position: absolute">Sorry your browser is not supported.</canvas>-->
+        <!--<canvas id="game_hud" style="display: block; position: absolute">Sorry your browser is not supported.</canvas>-->
+        <canvas id="game_canvas" style="display: block; position: absolute">Sorry your browser is not supported.</canvas>
       </div>
     </main>
-    <!--<footer class="game_footer">-->
-      <!--<nav class="game_footer_menu">-->
-        <!--<ul class="game_footer_list">-->
-          <!--<li><input class="game_footer_link" type=button value='Home' onclick='switchMainPage()'></li>-->
-          <!--<li><input class="game_footer_link" type=button value='New Game' onclick='switchNewGame()'></li>-->
-          <!--<li><input class="game_footer_link" type=button value='Rules' onclick='switchRules()'></li>-->
-          <!--<li><input class="game_footer_link" type=button value='Best Players' onclick='switchRecords()'></li>-->
-        <!--</ul>-->
-      <!--</nav>-->
-    <!--</footer>-->
-  <!--</div>-->
+  <audio id='menu' autoplay preload loop>
+    <source src="./assets/sound/menu_theme.mp3" type="audio/mpeg">
+  </audio>
+  <script src="app/sprite.js"></script>
+  <script src="app/background.js"></script>
+  <script src="app/alien.js"></script>
+  <script src="app/arahnid.js"></script>
+  <script src="app/player.js"></script>
+  <script src="app/bullet.js"></script>
 
-  <!--<script src="app/script.js"></script>-->
   <script src="app/game.js"></script>
-  <!--<script src="app/sprites.js"></script>-->
-  <!--<script src="app/model/model.js"></script>-->
-  <!--<script src="app/animation.js"></script>-->
-  <!--<script src="app/app.js"></script>-->
-  <!--<script src="app/controller/controller.js"></script>-->
-  <!--<script src="app/view/view.js"></script>-->
+
 </body>
 </html>
