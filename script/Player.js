@@ -32,6 +32,7 @@
 
       if (this.shooting && this.leftPressed) {
         this.sprite.image = game.images.metroidLeftAttImage;
+        this.sprite.animationSpeed = 0.2;
         if (game.gameTimer % 30 === 0) {
           game.bullets.push(new gameJS.Shot({
             sprite: new gameJS.Sprite({
@@ -57,8 +58,9 @@
 
       if (this.shooting && this.rightPressed) {
         this.sprite.image = game.images.metroidRightAttImage;
+        this.sprite.animationSpeed = 0.2;
         this.sprite.update();
-        if (game.gameTimer % 30 === 0) {
+        if (this.shooting && game.gameTimer % 30 === 0) {
           game.bullets.push(new gameJS.Shot({
             sprite: new gameJS.Sprite({
               image: game.images.bullet,
@@ -83,6 +85,7 @@
 
       if (this.plazmaShooting && this.leftPressed) {
         this.sprite.image = game.images.metroidLeftAttImage;
+        this.sprite.animationSpeed = 0.2;
         game.plazmaShots.push(new gameJS.Shot({
           sprite: new gameJS.Sprite({
             image: game.images.plazmaShot,
@@ -106,6 +109,7 @@
 
       if (this.plazmaShooting && this.rightPressed) {
         this.sprite.image = game.images.metroidRightAttImage;
+        this.sprite.animationSpeed = 0.2;
         game.plazmaShots.push(new gameJS.Shot({
           sprite: new gameJS.Sprite({
             image: game.images.plazmaShot,
@@ -130,12 +134,15 @@
 
     update() {
       this.sprite.image = game.images.metroidStandImage;
+      this.sprite.animationSpeed = 0;
       if (this.rightPressed) {
         this.posX += this.speed;
         this.sprite.image = game.images.metroidRightImage;
+        this.sprite.animationSpeed = 0.4;
       }
       else if (this.leftPressed) {
         this.sprite.image = game.images.metroidLeftImage;
+        this.sprite.animationSpeed = 0.4;
         this.posX -= this.speed;
       }
       if (this.jump) {
@@ -147,7 +154,7 @@
         this.jumpCount = 0;
         this.jump = false;
         this.jumpHeight = 0;
-        this.sprite.animationSpeed = 0.3;
+        this.sprite.animationSpeed = 0.4;
       }
       this.shot();
       this.sprite.update();

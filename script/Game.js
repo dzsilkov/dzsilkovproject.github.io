@@ -45,11 +45,15 @@
       this.menuThemeAudio.autoplay;
       this.menuThemeAudio.loop;
 
-
       this.gameThemeAudio = new Audio();
       this.gameThemeAudio.src = './assets/sound/game_theme.mp3';
       this.gameThemeAudio.autoplay;
       this.gameThemeAudio.loop;
+
+      this.gameOverTheme = new Audio();
+      this.gameOverTheme.src = './assets/sound/game_over_theme.mp3';
+      this.gameOverTheme.autoplay;
+      this.gameOverTheme.loop;
 
 
       this.images.alienBigImage = new Image();
@@ -440,7 +444,7 @@
         }
 
         if (Math.abs(enemy.posX + 10 - this.player.posX - 30) < 100 && Math.abs(enemy.posY - this.player.posY) < 30) {
-          this.player.health -= 1;
+          // this.player.health -= 1;
         }
 
         this.healths.forEach((health) => {
@@ -548,7 +552,7 @@
             width: 200,
             height: 200,
           }));
-          this.player.health -= 5;
+          this.player.health -= 3;
           this.bombs.splice(this, 1)
         }
         this.enemys.forEach((enemy => {
@@ -594,7 +598,7 @@
             width: 200,
             height: 200,
           }));
-          this.player.health -= 10;
+          this.player.health -= 5;
           this.bombs.splice(this, 1)
         }
 
@@ -695,6 +699,9 @@
     };
 
     stop() {
+      this.gameThemeAudio.pause();
+      this.gameOverTheme.play();
+      createGameOver(document.getElementById('game_zone'));
       this.menu = true;
     }
 

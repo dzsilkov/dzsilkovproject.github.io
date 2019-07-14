@@ -109,7 +109,28 @@ function createCanvas(id) {
   return canvas;
 }
 
+function createGameOver (parent) {
+  let modal = document.createElement('div');
+  parent.appendChild(modal);
+  modal.id = 'modal_gameOver';
+  modal.className = 'modal_name';
+  modal.style.position = 'fixed';
+  modal.style.zIndex = '999';
+  modal.innerHTML = `
+      <h3 id="header_game_over" style="font-size: 1em; padding: 0.5em; margin: 1em; border-radius: 0.3em;">GAME OVER</h3>
+      <p id="content_game_over" >Дружище ${playerName}, Враги опять победили.<br> Отомсти им. <br>Играть снова.</p>
+      <input id="enter_name" type="submit" value="начать игру" class="game_button" onclick="generateGame()">
+  `;
+  function switchToMain() {
+    switchToState( { pageHTML:'Main' } );
+  }
+  return modal;
+}
+
 function createModal (parent){
+  if(document.getElementById('modal_gameOver')) {
+    destroyElement('modal_gameOver');
+  }
   let modal = document.createElement('div');
   let shadow = document.createElement('div');
   shadow.id = 'shadow';
@@ -122,10 +143,8 @@ function createModal (parent){
   modal.innerHTML = `
   <h2 style="margin: 1em;"> Добро пожаловать</h2>
   <p style="margin: 1em;">Введите ваше имя:</p>
-  <!--<form id="name">-->
       <input id="input_name" type="text" name="input_name" form="name" autofocus autocomplete="off" style="font-size: 1em; padding: 0.5em; margin: 1em; border-radius: 0.3em; background-color: antiquewhite" value="">
       <input id="enter_name" type="submit" value="начать игру" class="game_button" onclick="getPlayerName()">
-  <!--</form> -->
   `;
   return modal;
 }
@@ -301,6 +320,7 @@ function switchToStateFromURLHash() {
 
       game.exists = false;
       game.menu = true;
+      game.gameOverTheme.pause();
       game.gameThemeAudio.pause();
       game.menuThemeAudio.play();
       break;
@@ -314,6 +334,7 @@ function switchToStateFromURLHash() {
       `;
       game.menu = false;
       game.exists = true;
+      game.gameOverTheme.pause();
       game.menuThemeAudio.pause();
       game.gameThemeAudio.play();
 

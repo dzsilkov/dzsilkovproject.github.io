@@ -97,7 +97,8 @@ td:last-child,td:first-child  {
   padding-top: 5vh;
 }
 
-#modal {
+#modal,
+#modal_gameOver {
   box-shadow: 0 0 0.5em 0.5em rgba(100, 149, 237, .4);
   color: rgba(100, 149, 237, .9);
   text-align: center;
