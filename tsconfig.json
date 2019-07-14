@@ -1,0 +1,15 @@
+{
+"name": "GameJS",
+"short_name": "GJS",
+"icons": [{
+"src": "./fuvicon bug",
+"sizes": "20x20",
+"type": "image/png"
+}],
+"start_url": "./index.html?homescreen=1",
+"display": "standalone",
+"background_color": " #6495ED",
+"theme_color": " #6495ED",
+"description": "GameJS - Alien vs Arahnid.",
+"lang": "ru-Ru"
+}

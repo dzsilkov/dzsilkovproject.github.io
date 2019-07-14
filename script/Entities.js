@@ -74,7 +74,12 @@
       this.drawPosY = options.drawPosY;
       this.drawWidth = options.drawWidth;
       this.drawHeight = options.drawHeight;
-    }
+      this.show = true;
+    };
+
+    update() {
+      this.show = true;
+    };
 
     render(context) {
       context.drawImage(
@@ -94,7 +99,7 @@
   class Bomb {
     constructor(options) {
       this.sprite = new gameJS.Sprite({
-        image: bombImage,
+        image: game.images.bombImage,
         framePosX: 0,
         framePosY: 0,
         frameWidth: 160,
@@ -134,25 +139,6 @@
       this.sprite.update();
     };
 
-    // falling() {
-    //   if (this.posY + this.height >= canvas.height) {
-    //     this.posY = canvas.height - this.height;
-    //   }
-    //   if (Math.abs(this.speed) < this.accel * 2 && this.posY + this.height >= canvas.height) {
-    //     this.fall = false;
-    //     this.speed = 0;
-    //   }
-    // };
-    //
-    // collisions() {
-    //   let x = this.posX + this.dx;
-    //   let y = this.posY + this.speed;
-    //
-    //   if (y + this.height > canvas.height) {
-    //     bombs.splice(this, 1);
-    //   }
-    // };
-
     render(context) {
 
       this.sprite.render(context, this.posX, this.posY, this.width, this.height);
@@ -162,7 +148,7 @@
   class Health {
     constructor(options) {
       this.sprite = new gameJS.Sprite({
-        image: healthImage,
+        image: game.images.healthImage,
         framePosX: 0,
         framePosY: 0,
         frameWidth: 200,
