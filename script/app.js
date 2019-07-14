@@ -43,7 +43,7 @@ function storeData() {
   updatePassword = Math.random();
   $.ajax(
     {
-      url: AjaxHandlerScript,
+      url: ajaxHandlerScript,
       type: 'POST',
       data: {
         f: 'LOCKGET',
@@ -63,7 +63,7 @@ function lockGetReady(resultData) {
   } else {
     $.ajax(
       {
-        url: AjaxHandlerScript,
+        url: ajaxHandlerScript,
         type: 'POST',
         data: {
           f: 'UPDATE',
