@@ -207,7 +207,7 @@
           lineWidth: 2,
         }),
         posX: 0,
-        posY: 450,
+        posY: this.canvas.height - 200,
         speed: 6,
         width: this.canvas.width / 7,
         height: this.canvas.height / 4.4,
@@ -247,9 +247,12 @@
           lineWidth: 2,
         }),
         posX: 0,
-        posY: 420,
         width: this.canvas.width / 3.6,
         height: this.canvas.height / 3.6,
+        posY: this.canvas.height - 230,
+     
+       
+     
       }));
 
       this.enemys.push(new gameJS.Alien({
@@ -286,9 +289,10 @@
           lineWidth: 2,
         }),
         posX: 0,
-        posY: 460,
         width: this.canvas.width / 5.2,
         height: this.canvas.height / 4.7,
+        posY: this.canvas.height - 190, 
+     
       }));
 
       this.player.name = playerName;
@@ -395,7 +399,7 @@
               lineWidth: 2,
             }),
             posX: 0,
-            posY: 460,
+            posY: this.canvas.height - 190,
             speed: 4,
             width: 260,
             height: 140,
@@ -434,7 +438,7 @@
               lineWidth: 2,
             }),
             posX: 0,
-            posY: 420,
+            posY: this.canvas.height - 230,
             speed: 5,
             width: 380,
             height: 180,
