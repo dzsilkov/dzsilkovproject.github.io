@@ -121,9 +121,7 @@ function createGameOver (parent) {
       <p id="content_game_over" >Дружище ${playerName}, Враги опять победили.<br> Отомсти им. <br>Играть снова.</p>
       <input id="enter_name" type="submit" value="начать игру" class="game_button" onclick="generateGame()">
   `;
-  function switchToMain() {
-    switchToState( { pageHTML:'Main' } );
-  }
+  switchToMain();
   return modal;
 }
 
@@ -187,25 +185,20 @@ document.addEventListener("keyup", keyLeftHandler, false);
 function keyRightHandler(e) {
   if (e.keyCode === 39) {
     game.player.rightPressed = true;
-    console.log('right')
   }
   if (e.keyCode === 37) {
     game.player.leftPressed = true;
-    console.log('left')
   }
   if (e.keyCode === 38) {
     game.player.jump = true;
-    console.log('jump')
   }
   if (e.keyCode ===  16) {
     e.preventDefault();
     game.player.shooting = true;
-    console.log('shot')
   }
   if (e.keyCode ===  17) {
     e.preventDefault();
     game.player.plazmaShooting = true;
-    console.log('pzhot')
   }
 }
 
@@ -345,8 +338,17 @@ function switchToStateFromURLHash() {
 
       pageHTML += `
       <span class="gameMenu game_button" style="position: absolute" onclick="switchToMain()">Back To Main</span>
-      <div class="rules">
-      <h3 class="rules_header" style="text-align: center; color: rgba(255, 99, 71, .8)">Rules</h3> 
+      <div class="rules" style="color: rgb(255, 99, 71)">
+      <h3 class="rules_header" style="text-align: center; font-size: 8vh; padding-top: 10vh">Rules:</h3> 
+      <h4 style="text-align: center; font-size: 4vh; padding-top: 5vh">Цель игры победить максимальное количество врагов</h4>
+      <h4 style="text-align: center; font-size: 8vh; padding-top: 5vh">Управление: </h4>
+      <div style="text-align: center; font-size: 5vh; padding: 5vh;">
+      <p style="text-align: left " ><span style="">UP ARROW key: </span> Прыжок игрока.</p>
+      <p style="text-align: left" ><span style="">LEFT ARROW key: </span> Движение игрока вправо.</p>
+      <p style="text-align: left" ><span style="">RIGHT ARROW key: </span>  Движение игрока вправо.</p>
+      <p style="text-align: left" ><span style="">SHIFT key: </span>  - Выстрел.</p>
+      <p style="text-align: left" ><span style="">CTRL key: </span>  - Плазма Выстрел.</p>
+      </div>
       </div>
       `;
 
