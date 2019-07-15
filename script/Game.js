@@ -180,7 +180,7 @@
           framePosY: 0,
           frameWidth: 97.5,
           frameHeight: 80,
-          animationSpeed: 0.3,
+          animationSpeed: 0.1,
           arrFrames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           frameIndex: 0,
           animateDirection: 'horizontal',
@@ -209,8 +209,8 @@
         posX: 0,
         posY: 450,
         speed: 6,
-        width: 200,
-        height: 150,
+        width: this.canvas.width / 7,
+        height: this.canvas.height / 4,
       });
 
       this.enemys.push(new gameJS.Arahnid({
@@ -248,8 +248,8 @@
         }),
         posX: 0,
         posY: 420,
-        width: 380,
-        height: 180,
+        width: this.canvas.width / 3.6,
+        height: this.canvas.height / 3.6,
       }));
 
       this.enemys.push(new gameJS.Alien({
@@ -287,8 +287,8 @@
         }),
         posX: 0,
         posY: 460,
-        width: 260,
-        height: 140,
+        width: this.canvas.width / 5.2,
+        height: this.canvas.height / 4.7,
       }));
 
       this.player.name = playerName;
@@ -396,6 +396,7 @@
             }),
             posX: 0,
             posY: 460,
+            speed: 4,
             width: 260,
             height: 140,
           }));
@@ -434,6 +435,7 @@
             }),
             posX: 0,
             posY: 420,
+            speed: 5,
             width: 380,
             height: 180,
           }));
