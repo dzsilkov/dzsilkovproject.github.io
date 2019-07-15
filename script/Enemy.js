@@ -17,7 +17,7 @@
       this.left = false;
       this.right = false;
       this.dx = 0;
-      this.speed = 4;
+      this.speed = 3;
       this.health = 100;
     };
 
@@ -73,7 +73,7 @@
       this.left = false;
       this.right = false;
       this.dx = 0;
-      this.speed = 6;
+      this.speed = 4;
       this.health = 100;
     };
 

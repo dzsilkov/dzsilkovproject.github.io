@@ -304,7 +304,7 @@ function switchToStateFromURLHash() {
     case 'Main':
       pageHTML += `
       <ul class="game_menu" style="position: ">
-      <li class="gameMain, game_button" style="text-align: center" onclick="switchToMain()">Main</li>
+      <!--<li class="gameMain, game_button" style="text-align: center" onclick="switchToMain()">Main</li>-->
       <li class="gameGame, game_button" style="text-align: center" onclick="switchToGame()">Game</li>
       <li class="gameRules, game_button" style="text-align: center" onclick="switchToRules()">Rules</li>
       <li class="gameRecords, game_button" style="text-align: center" onclick="switchToRecords()">Records</li>
