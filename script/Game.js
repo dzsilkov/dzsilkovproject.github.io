@@ -446,7 +446,7 @@
         }
 
         if (Math.abs(enemy.posX + 10 - this.player.posX - 30) < 100 && Math.abs(enemy.posY - this.player.posY) < 30) {
-          // this.player.health -= 1;
+          this.player.health -= 1;
         }
 
         this.healths.forEach((health) => {
