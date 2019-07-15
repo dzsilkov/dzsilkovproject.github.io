@@ -210,7 +210,7 @@
         posY: 450,
         speed: 6,
         width: this.canvas.width / 7,
-        height: this.canvas.height / 4,
+        height: this.canvas.height / 4.4,
       });
 
       this.enemys.push(new gameJS.Arahnid({
