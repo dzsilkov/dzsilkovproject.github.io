@@ -109,7 +109,26 @@ function createCanvas(id) {
   return canvas;
 }
 
+function createGameOver (parent) {
+  let modal = document.createElement('div');
+  parent.appendChild(modal);
+  modal.id = 'modal_gameOver';
+  modal.className = 'modal_name';
+  modal.style.position = 'fixed';
+  modal.style.zIndex = '999';
+  modal.innerHTML = `
+      <h3 id="header_game_over" style="font-size: 1em; padding: 0.5em; margin: 1em; border-radius: 0.3em;">GAME OVER</h3>
+      <p id="content_game_over" >Дружище ${playerName}, Враги опять победили.<br> Отомсти им. <br>Играть снова.</p>
+      <input id="enter_name" type="submit" value="начать игру" class="game_button" onclick="generateGame()">
+  `;
+  switchToMain();
+  return modal;
+}
+
 function createModal (parent){
+  if(document.getElementById('modal_gameOver')) {
+    destroyElement('modal_gameOver');
+  }
   let modal = document.createElement('div');
   let shadow = document.createElement('div');
   shadow.id = 'shadow';
@@ -122,10 +141,8 @@ function createModal (parent){
   modal.innerHTML = `
   <h2 style="margin: 1em;"> Добро пожаловать</h2>
   <p style="margin: 1em;">Введите ваше имя:</p>
-  <!--<form id="name">-->
       <input id="input_name" type="text" name="input_name" form="name" autofocus autocomplete="off" style="font-size: 1em; padding: 0.5em; margin: 1em; border-radius: 0.3em; background-color: antiquewhite" value="">
       <input id="enter_name" type="submit" value="начать игру" class="game_button" onclick="getPlayerName()">
-  <!--</form> -->
   `;
   return modal;
 }
@@ -168,25 +185,20 @@ document.addEventListener("keyup", keyLeftHandler, false);
 function keyRightHandler(e) {
   if (e.keyCode === 39) {
     game.player.rightPressed = true;
-    console.log('right')
   }
   if (e.keyCode === 37) {
     game.player.leftPressed = true;
-    console.log('left')
   }
   if (e.keyCode === 38) {
     game.player.jump = true;
-    console.log('jump')
   }
   if (e.keyCode ===  16) {
     e.preventDefault();
     game.player.shooting = true;
-    console.log('shot')
   }
   if (e.keyCode ===  17) {
     e.preventDefault();
     game.player.plazmaShooting = true;
-    console.log('pzhot')
   }
 }
 
@@ -292,7 +304,7 @@ function switchToStateFromURLHash() {
     case 'Main':
       pageHTML += `
       <ul class="game_menu" style="position: ">
-      <li class="gameMain, game_button" style="text-align: center" onclick="switchToMain()">Main</li>
+      <!--<li class="gameMain, game_button" style="text-align: center" onclick="switchToMain()">Main</li>-->
       <li class="gameGame, game_button" style="text-align: center" onclick="switchToGame()">Game</li>
       <li class="gameRules, game_button" style="text-align: center" onclick="switchToRules()">Rules</li>
       <li class="gameRecords, game_button" style="text-align: center" onclick="switchToRecords()">Records</li>
@@ -301,6 +313,7 @@ function switchToStateFromURLHash() {
 
       game.exists = false;
       game.menu = true;
+      game.gameOverTheme.pause();
       game.gameThemeAudio.pause();
       game.menuThemeAudio.play();
       break;
@@ -314,6 +327,7 @@ function switchToStateFromURLHash() {
       `;
       game.menu = false;
       game.exists = true;
+      game.gameOverTheme.pause();
       game.menuThemeAudio.pause();
       game.gameThemeAudio.play();
 
@@ -324,8 +338,17 @@ function switchToStateFromURLHash() {
 
       pageHTML += `
       <span class="gameMenu game_button" style="position: absolute" onclick="switchToMain()">Back To Main</span>
-      <div class="rules">
-      <h3 class="rules_header" style="text-align: center; color: rgba(255, 99, 71, .8)">Rules</h3> 
+      <div class="rules" style="color: rgb(255, 99, 71)">
+      <h3 class="rules_header" style="text-align: center; font-size: 8vh; padding-top: 10vh">Rules:</h3> 
+      <h4 style="text-align: center; font-size: 4vh; padding-top: 5vh">Цель игры победить максимальное количество врагов</h4>
+      <h4 style="text-align: center; font-size: 8vh; padding-top: 5vh">Управление: </h4>
+      <div style="text-align: center; font-size: 5vh; padding: 5vh;">
+      <p style="text-align: left " ><span style="">UP ARROW key: </span> Прыжок игрока.</p>
+      <p style="text-align: left" ><span style="">LEFT ARROW key: </span> Движение игрока вправо.</p>
+      <p style="text-align: left" ><span style="">RIGHT ARROW key: </span>  Движение игрока вправо.</p>
+      <p style="text-align: left" ><span style="">SHIFT key: </span>  - Выстрел.</p>
+      <p style="text-align: left" ><span style="">CTRL key: </span>  - Плазма Выстрел.</p>
+      </div>
       </div>
       `;
 

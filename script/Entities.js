@@ -183,29 +183,6 @@
       this.sprite.update();
     };
 
-    // falling() {
-    //   if (!this.fall) {
-    //     return
-    //   }
-    //   this.speed += this.speed <= this.maxSpeed ? this.accel : 0;
-    //   if (this.posY + this.height >= canvas.height - 50) {
-    //     this.posY = canvas.height - 50 - this.height;
-    //   }
-    //   if (Math.abs(this.speed) < this.accel * 2 && this.posY + this.height >= canvas.height - 50) {
-    //     this.fall = false;
-    //     this.speed = 0;
-    //   }
-    // };
-    //
-    // collisions() {
-    //   let x = this.posX + this.dx;
-    //   let y = this.posY + this.speed;
-    //
-    //   if (y + this.height > canvas.height - 50) {
-    //     healths.splice(this, 1);
-    //   }
-    // };
-
     render(context) {
       this.sprite.render(context, this.posX, this.posY, this.width, this.height);
     }

@@ -45,11 +45,15 @@
       this.menuThemeAudio.autoplay;
       this.menuThemeAudio.loop;
 
-
       this.gameThemeAudio = new Audio();
       this.gameThemeAudio.src = './assets/sound/game_theme.mp3';
       this.gameThemeAudio.autoplay;
       this.gameThemeAudio.loop;
+
+      this.gameOverTheme = new Audio();
+      this.gameOverTheme.src = './assets/sound/game_over_theme.mp3';
+      this.gameOverTheme.autoplay;
+      this.gameOverTheme.loop;
 
 
       this.images.alienBigImage = new Image();
@@ -176,7 +180,7 @@
           framePosY: 0,
           frameWidth: 97.5,
           frameHeight: 80,
-          animationSpeed: 0.3,
+          animationSpeed: 0.1,
           arrFrames: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
           frameIndex: 0,
           animateDirection: 'horizontal',
@@ -205,8 +209,8 @@
         posX: 0,
         posY: this.canvas.height - 200,
         speed: 6,
-        width: 200,
-        height: 150,
+        width: this.canvas.width / 7,
+        height: this.canvas.height / 4.4,
       });
 
       this.enemys.push(new gameJS.Arahnid({
@@ -216,7 +220,7 @@
           framePosY: 0,
           frameWidth: 320,
           frameHeight: 140,
-          animationSpeed: 0.2,
+          animationSpeed: 0.1,
           arrFrames: [0, 1, 2, 3, 4, 5],
           frameIndex: 0,
           animateDirection: 'horizontal',
@@ -243,10 +247,12 @@
           lineWidth: 2,
         }),
         posX: 0,
+        width: this.canvas.width / 3.6,
+        height: this.canvas.height / 3.6,
         posY: this.canvas.height - 230,
-        speed: 5,
-        width: 380,
-        height: 180,
+     
+       
+     
       }));
 
       this.enemys.push(new gameJS.Alien({
@@ -256,7 +262,7 @@
           framePosY: 0,
           frameWidth: 151,
           frameHeight: 75,
-          animationSpeed: 0.2,
+          animationSpeed: 0.1,
           arrFrames: [0, 1, 2, 3, 4, 5, 6, 7],
           frameIndex: 0,
           animateDirection: 'horizontal',
@@ -283,10 +289,10 @@
           lineWidth: 2,
         }),
         posX: 0,
-        posY: this.canvas.height - 190,
-        speed: 4,
-        width: 260,
-        height: 140,
+        width: this.canvas.width / 5.2,
+        height: this.canvas.height / 4.7,
+        posY: this.canvas.height - 190, 
+     
       }));
 
       this.player.name = playerName;
@@ -366,7 +372,7 @@
               framePosY: 0,
               frameWidth: 151,
               frameHeight: 75,
-              animationSpeed: 0.2,
+              animationSpeed: 0.1,
               arrFrames: [0, 1, 2, 3, 4, 5, 6, 7],
               frameIndex: 0,
               animateDirection: 'horizontal',
@@ -405,7 +411,7 @@
               framePosY: 0,
               frameWidth: 320,
               frameHeight: 140,
-              animationSpeed: 0.2,
+              animationSpeed: 0.1,
               arrFrames: [0, 1, 2, 3, 4, 5],
               frameIndex: 0,
               animateDirection: 'horizontal',
@@ -440,7 +446,7 @@
         }
 
         if (Math.abs(enemy.posX + 10 - this.player.posX - 30) < 100 && Math.abs(enemy.posY - this.player.posY) < 30) {
-          this.player.health -= 1;
+          // this.player.health -= 1;
         }
 
         this.healths.forEach((health) => {
@@ -548,7 +554,7 @@
             width: 200,
             height: 200,
           }));
-          this.player.health -= 5;
+          this.player.health -= 3;
           this.bombs.splice(this, 1)
         }
         this.enemys.forEach((enemy => {
@@ -594,7 +600,7 @@
             width: 200,
             height: 200,
           }));
-          this.player.health -= 10;
+          this.player.health -= 5;
           this.bombs.splice(this, 1)
         }
 
@@ -695,6 +701,9 @@
     };
 
     stop() {
+      this.gameThemeAudio.pause();
+      this.gameOverTheme.play();
+      createGameOver(document.getElementById('game_zone'));
       this.menu = true;
     }
 
